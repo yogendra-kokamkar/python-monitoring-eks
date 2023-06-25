@@ -5,9 +5,21 @@ pipeline{
     stage('Code'){
         steps{
           git url: 'https://github.com/yogendra-kokamkar/python-monitoring-eks.git', branch: 'jenkins-cicd'
-          sh 'ls -l'
-     }
-    
+        }
    }
- }
+    stage('Build'){
+        steps{
+          sh 'docker build -t yogendrakokamkar/monitor .'
+        }
+   }
+
+    stage('Push'){
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'DockerPassword', usernameVariable: 'DockerUser')]) {
+        	       sh "sudo docker login -u ${env.DockerUser} -p ${env.DockerPassword}"
+                 sh 'sudo docker push yogendrakokamkar/monitor'
+                }
+            }
+        }
+  }
 }
