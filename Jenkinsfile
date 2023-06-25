@@ -16,8 +16,8 @@ pipeline{
     stage('Push'){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'DockerPassword', usernameVariable: 'DockerUser')]) {
-        	       sh "sudo docker login -u ${env.DockerUser} -p ${env.DockerPassword}"
-                 sh 'sudo docker push yogendrakokamkar/monitor'
+        	       sh "docker login -u ${env.DockerUser} -p ${env.DockerPassword}"
+                 sh 'docker push yogendrakokamkar/monitor'
                 }
             }
         }
