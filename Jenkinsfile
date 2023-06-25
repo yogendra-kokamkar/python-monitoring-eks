@@ -24,7 +24,7 @@ pipeline{
     stage('Deploy'){
        steps{
          sh 'docker-compose down'
-         sh 'docker-compose up --force-recreate --no-deps --build monitor'
+         sh 'docker-compose up -d --force-recreate --no-deps --build monitor'
        }
     }
     
