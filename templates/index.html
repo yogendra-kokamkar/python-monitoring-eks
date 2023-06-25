@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>System Monitoring</title>
+    <title>Instance Monitoring</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         .plotly-graph-div {
@@ -29,7 +29,7 @@
             gauge: {
                 axis: { range: [null, 100] },
                 bar: { color: "#1f77b4" },
-                bgcolor: "turquoise",
+                bgcolor: "white",
                 borderwidth: 2,
                 bordercolor: "#ccc",
                 steps: [
@@ -38,7 +38,7 @@
                     { range: [85, 100], color: "#ff5f5f" }
                 ],
                 threshold: {
-                    line: { color: "red", width: 4 },
+                    line: { color: "black", width: 4 },
                     thickness: 0.75,
                     value: {{ cpu_metric }}
                 }
@@ -52,7 +52,7 @@
             gauge: {
                 axis: { range: [null, 100] },
                 bar: { color: "#1f77b4" },
-                bgcolor: "turquoise",
+                bgcolor: "white",
                 borderwidth: 2,
                 bordercolor: "#ccc",
                 steps: [
@@ -61,7 +61,7 @@
                     { range: [85, 100], color: "#ff5f5f" }
                 ],
                 threshold: {
-                    line: { color: "red", width: 4 },
+                    line: { color: "black", width: 4 },
                     thickness: 0.75,
                     value: {{ mem_metric }}
                 }
